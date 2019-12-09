@@ -1,0 +1,527 @@
+
+/* --------------------------------- */
+/* VARIABLES */
+/* --------------------------------- */
+
+:root{
+    /* #ecf0f1 */
+    --r-color: #b9b5b5; 
+    --button-normal:blue;
+    --button-hover:rgb(42, 42, 173);
+    --button-selected:rgb(44, 44, 110);
+
+    /* not sure this is viable */
+    --arm-left-top:30rem;
+    --arm-left-left:20rem;
+
+    --eye-color:rgb(35, 140, 201);
+}
+
+body {
+    background-color: #d8e0db;
+}
+
+#container {
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    top:6rem;
+    width: 80%;
+    height:55rem;
+    margin: auto;
+    background-color:#34495e;
+}
+
+#r-body{
+    position:relative;
+    height:80%;
+}
+
+
+/* --------------------------------- */
+/* R BODY */
+/* I started this design without much of a plan as it was my first venture with css shapes and animating them.
+So I really should have used SASS. Silly me. Will do for any project involving this much CSS in the future. 
+Hardcoding these body parts was quite derpy.*/
+/* --------------------------------- */
+
+#r-body{
+
+}
+
+.r-body-part{
+    position:absolute;
+    background-color: var(--r-color);
+}
+
+#ear-left{
+    position:relative;
+    top:3rem;
+    left:41rem;
+
+    height: 5rem;
+    width: 10rem;
+    
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+#ear-left-inner{
+    top:1.2rem;
+    left:1.5rem;
+
+    border-radius: 50%;
+    height:2.5rem;
+    width:6rem;
+    background-color:pink;
+
+}
+
+#ear-right{
+    top:3rem;
+    left:51rem;
+
+    height: 5rem;
+    width: 10rem;
+    border-radius: 50%;
+    transform: rotate(-45deg);
+}
+
+#ear-right-inner{
+    top:1.2rem;
+    left:1.5rem;
+
+    border-radius: 50%;
+    height:2.5rem;
+    width:6rem;
+    background-color:pink;
+
+}
+
+#head{
+    top:8rem;
+    left:46rem;
+
+    height:10rem;
+    width:10rem;
+    border-radius: 50%;
+    
+}
+
+#torso{
+    top:16rem;
+    left:46rem;
+
+    height:18rem;
+    width:10rem;
+    border-radius: 50% 50% 10% 10%;
+}
+
+#nose{
+    top:14rem;
+    left:50.5rem;
+
+    height:1rem;
+    width:1rem;
+    border-radius: 50%;
+    background-color:hotpink;
+
+}
+#mouth{
+    top:15.5rem;
+    left:49.9rem;
+
+    width:1.6rem; 
+    height:.3rem;  
+    border:solid .3rem #000;
+    background-color:black;
+    border-radius:0 0 50% 50%;
+
+}
+#tongue{
+    top:15.8rem;
+    left:50.3rem;
+
+    width:1.5rem; 
+    height:.6rem;  
+    background-color:pink;
+    border-radius:0 0 50% 50%;
+
+}
+#left-tooth{
+    top:15.5rem;
+    left:50.5rem;
+
+    width:.5rem; 
+    height:.5rem;  
+    background-color:white;
+
+}
+#right-tooth{
+    top:15.5rem;
+    left:51rem;
+
+    width:.5rem; 
+    height:.5rem;  
+    border-left:1px solid black;
+    background-color:white;
+    
+
+}
+
+#leg-upper-left{
+    top:29rem;
+    left:42.5rem;
+
+    height:4rem;
+    width:6rem;
+    border-radius: 50%;
+
+    transform:rotate(60deg);
+}
+#leg-bottom-left{
+    top:31.5rem;
+    left:40rem;
+
+    height:2.5rem;
+    width:7rem;
+    border-radius: 50% 50% 0 50%;
+}
+#leg-upper-right{
+    top:29rem;
+    left:53.5rem;
+
+    height:4rem;
+    width:6rem;
+    border-radius: 50%;
+
+    transform:rotate(-60deg);
+}
+#leg-bottom-right{
+    top:31.5rem;
+    left:54.5rem;
+
+    height:2.5rem;
+    width:7rem;
+    border-radius: 0 50% 50% 0;
+}
+
+#arm-left{
+    top:22rem;
+    left:41rem;
+
+    height:3rem;
+    width:10rem;
+    border-radius: 50% 0 0 50%;
+
+    transform:rotate(-45deg);
+}
+
+#arm-right{
+    top:22rem;
+    left:51rem;
+
+    height:3rem;
+    width:10rem;
+    border-radius: 50% 0 0 50%;
+
+    transform:rotate(-135deg);
+}
+
+#eye-left{
+    top:11rem;
+    left:48rem;
+    z-index:1;
+
+    height:2.5rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:white;
+    border-top:solid black 2px;
+
+}
+#eye-left-iris{
+    top:.5rem;
+    z-index:2;
+
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:var(--eye-color);
+}
+#eye-left-pupil{
+    top:1rem;
+    z-index:3;
+
+    height:1.5rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:black;
+}
+#eye-left-shine{
+    top:1.1rem;
+    left:.2rem;
+    z-index:4;
+
+    height:.6rem;
+    width:.6rem;
+    border-radius: 50%;
+    background-color:white;
+}
+#eye-left-heart{
+    position:relative;
+    top:1.1rem;
+    left:.5rem;
+    z-index:4;
+    opacity:0;
+
+    height:.6rem;
+    width:.6rem;
+    transform:rotate(-45deg);
+    background-color:red;
+}
+#eye-left-heart:before,
+#eye-left-heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: .6rem;
+  position: absolute;
+  width: .6rem;
+}
+#eye-left-heart:before {
+    top:-.3rem;
+  }
+#eye-left-heart:after {
+    left:.25rem;
+  }
+#eye-right{
+    top:11rem;
+    left:51.7rem;
+    z-index:1;
+
+    height:2.5rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:white;
+    border-top:solid black 2px;
+
+}
+#eye-right-iris{
+    top:.5rem;
+    z-index:2;
+
+    height:2rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:var(--eye-color);
+}
+#eye-right-pupil{
+    top:1rem;
+    z-index:3;
+
+    height:1.5rem;
+    width:2rem;
+    border-radius: 50%;
+    background-color:black;
+}
+#eye-right-shine{
+    top:1.1rem;
+    left:.9rem;
+    z-index:4;
+
+    height:.6rem;
+    width:.6rem;
+    border-radius: 50%;
+    background-color:white;
+}
+
+/* Borrowed from https://css-tricks.com/the-shapes-of-css/ */
+#talk-bubble {
+    width: 12rem;
+    height: 8rem;
+    background: white;
+    position: relative;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 50%;
+    left:60rem;
+    top:6.5rem;
+    opacity:0%;
+  }
+  #talk-bubble:before {
+    content: "";
+    position: absolute;
+    right: 95%;
+    top: 26px;
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-right: 26px solid white;
+    border-bottom: 13px solid transparent;
+  }
+
+  #happy-birthday-text{
+      position:absolute;
+      top:1.5rem;
+      left:.5rem;
+      font-size:2rem;
+      text-align: center;
+  }
+
+
+
+/* --------------------------------- */
+/* BUTTONS */
+/* --------------------------------- */
+
+#r-buttons{
+    position:relative;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height:20%;
+    background-color:#95a5a6;
+}
+
+.action-button{
+    background-color:var(--button-normal);
+    border:none;
+    border-radius: 1rem;
+    box-shadow: 0 6px var(--shadow-1);
+    color:#ffffff;
+    padding:1.5rem;
+    text-decoration: none;
+    cursor:pointer;
+    outline: none;
+
+    height:50%;
+
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    
+}
+
+.action-button:hover{
+    background-color:var(--button-hover);
+}
+
+.action-button:active{
+    background-color:var(--button-selected);
+    box-shadow: 0 3px var(--shadow-2);
+    transform: translateY(4px);
+}
+
+/* --------------------------------- */
+/* ANIMATIONS*/
+/* --------------------------------- */
+.animate-wave{
+    animation-name: wave;
+    animation-duration: 2.5s;
+}
+.animate-speak{
+    animation-name: speak;
+    animation-duration: 3s;
+}
+
+.animate-jump{
+    animation-name:jump;
+    animation-duration:2s;
+}
+
+.animate-twitterpate{
+    animation-name:twitterpate;
+    animation-duration:3s;
+}
+
+.animate-eye-disappear{
+    animation-name:eye-disappear;
+    animation-duration:3s;
+}
+
+@keyframes wave {
+    0%{
+        top:22rem;
+        left:41rem;
+    }
+    20%{
+        transform: rotate(45deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    30%{
+        transform: rotate(30deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    40%{
+        transform: rotate(45deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    50%{
+        transform: rotate(30deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    60%{
+        transform: rotate(45deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    70%{
+        transform: rotate(30deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    80%{
+        transform: rotate(45deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    100%{
+        top:22rem;
+        left:41rem;
+    }
+  }
+
+  @keyframes speak{
+      0%{
+          opacity:0%;
+      }
+      40%{
+          opacity:100%;
+      }
+      100%{
+          opacity:0%;
+      }
+  }
+
+  @keyframes jump{
+      0%{
+          top:0rem;
+      }
+      50%{
+          top:-5rem;
+      }
+      100%{
+          top:0rem;
+      }
+  }
+
+  @keyframes twitterpate{
+      0%{
+        opacity:0;
+        transform:scale(1)rotate(-45deg);
+      }
+      20%{
+          opacity:100;
+          transform:scale(1.5)rotate(-60deg);
+      }
+      100%{
+
+        transform:scale(1)rotate(-45deg);
+
+      }
+  }
