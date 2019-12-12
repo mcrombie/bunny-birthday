@@ -6,9 +6,12 @@
 :root{
     /* #ecf0f1 */
     --r-color: #b9b5b5; 
-    --button-normal:blue;
-    --button-hover:rgb(42, 42, 173);
-    --button-selected:rgb(44, 44, 110);
+    --button-normal:#006266;
+    --button-hover:#1B1464;
+    --button-selected:#1B1464;
+
+    --container-color:#34ace0;
+    --button-container-color:#009432;
 
     /* not sure this is viable */
     --arm-left-top:30rem;
@@ -19,17 +22,42 @@
 
 body {
     background-color: #d8e0db;
+    font-family: 'Happy Monkey', cursive;
 }
 
 #container {
     position:relative;
     display:flex;
     flex-direction: column;
-    top:6rem;
+    top:9rem;
     width: 80%;
-    height:55rem;
+    height:50rem;
     margin: auto;
-    background-color:#34495e;
+    background-color:var(--container-color);
+    box-shadow:0 1rem 2rem rgb(4, 3, 14);
+    border-radius: 3px;
+}
+
+@media (max-device-width: 600px) {
+    #container{
+        top:42rem;
+    }
+}
+@media (max-device-width: 800px) {
+    #container{
+        top:30rem;
+    }
+}
+@media (max-device-width: 1024px) {
+    #container{
+        top:18rem;
+    }
+}
+
+#birthday-bunny-title{
+    color:#d8e0db;
+    text-align: left;
+    margin:3rem 0rem 0rem 3rem;
 }
 
 #r-body{
@@ -45,9 +73,9 @@ So I really should have used SASS. Silly me. Will do for any project involving t
 Hardcoding these body parts was quite derpy.*/
 /* --------------------------------- */
 
-#r-body{
+/* #r-body{
 
-}
+} */
 
 .r-body-part{
     position:absolute;
@@ -269,8 +297,8 @@ Hardcoding these body parts was quite derpy.*/
 }
 #eye-left-heart{
     position:relative;
-    top:1.1rem;
-    left:.5rem;
+    top:7rem;
+    left:48.5rem;
     z-index:4;
     opacity:0;
 
@@ -334,6 +362,33 @@ Hardcoding these body parts was quite derpy.*/
     border-radius: 50%;
     background-color:white;
 }
+#eye-right-heart{
+    position:relative;
+    top:6.5rem;
+    left:52.5rem;
+    z-index:4;
+    opacity:0;
+
+    height:.6rem;
+    width:.6rem;
+    transform:rotate(-45deg);
+    background-color:red;
+}
+#eye-right-heart:before,
+#eye-right-heart:after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: .6rem;
+  position: absolute;
+  width: .6rem;
+}
+#eye-right-heart:before {
+    top:-.3rem;
+  }
+#eye-right-heart:after {
+    left:.25rem;
+  }
 
 /* Borrowed from https://css-tricks.com/the-shapes-of-css/ */
 #talk-bubble {
@@ -362,9 +417,9 @@ Hardcoding these body parts was quite derpy.*/
 
   #happy-birthday-text{
       position:absolute;
-      top:1.5rem;
-      left:.5rem;
-      font-size:2rem;
+      top:1.65rem;
+      left:.45rem;
+      font-size:1.6rem;
       text-align: center;
   }
 
@@ -381,7 +436,8 @@ Hardcoding these body parts was quite derpy.*/
     justify-content: space-around;
     align-items: center;
     height:20%;
-    background-color:#95a5a6;
+    background-color:var(--button-container-color);
+    
 }
 
 .action-button{
@@ -394,7 +450,7 @@ Hardcoding these body parts was quite derpy.*/
     text-decoration: none;
     cursor:pointer;
     outline: none;
-
+    font-family: 'Happy Monkey', cursive;
     height:50%;
 
 
@@ -422,21 +478,35 @@ Hardcoding these body parts was quite derpy.*/
 }
 .animate-speak{
     animation-name: speak;
-    animation-duration: 3s;
+    animation-duration: 3.5s;
 }
 
 .animate-jump{
     animation-name:jump;
-    animation-duration:2s;
+    animation-duration:3s;
 }
 
-.animate-twitterpate{
-    animation-name:twitterpate;
+.animate-twitterpate-left{
+    animation-name:twitterpate-left;
+    animation-duration:3s;
+}
+.animate-twitterpate-right{
+    animation-name:twitterpate-right;
     animation-duration:3s;
 }
 
 .animate-eye-disappear{
     animation-name:eye-disappear;
+    animation-duration:3s;
+}
+
+.animate-raise-left-arm{
+    animation-name:raise-left-arm;
+    animation-duration:3s;
+}
+
+.animate-raise-right-arm{
+    animation-name:raise-right-arm;
     animation-duration:3s;
 }
 
@@ -485,6 +555,36 @@ Hardcoding these body parts was quite derpy.*/
         left:41rem;
     }
   }
+  @keyframes raise-left-arm{
+    0%{
+        top:22rem;
+        left:41rem;
+    }
+    20%{
+        transform: rotate(45deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    100%{
+        top:22rem;
+        left:41rem;
+    }
+  }
+  @keyframes raise-right-arm{
+    0%{
+        top:22rem;
+        left:51rem;
+    }
+    20%{
+        transform:rotate(-215deg);
+        top:20rem;
+        /* left:39rem; */
+    }
+    100%{
+        top:22rem;
+        left:51rem;
+    }
+  }
 
   @keyframes speak{
       0%{
@@ -502,22 +602,22 @@ Hardcoding these body parts was quite derpy.*/
       0%{
           top:0rem;
       }
-      50%{
-          top:-5rem;
+      55%{
+          top:-7rem;
       }
       100%{
           top:0rem;
       }
   }
 
-  @keyframes twitterpate{
+  @keyframes twitterpate-left{
       0%{
         opacity:0;
         transform:scale(1)rotate(-45deg);
       }
       20%{
           opacity:100;
-          transform:scale(1.5)rotate(-60deg);
+          transform:scale(3)rotate(-60deg);
       }
       100%{
 
@@ -525,3 +625,38 @@ Hardcoding these body parts was quite derpy.*/
 
       }
   }
+  @keyframes twitterpate-right{
+      0%{
+        opacity:0;
+        transform:scale(1)rotate(-45deg);
+      }
+      20%{
+          opacity:100;
+          transform:scale(3)rotate(-30deg);
+      }
+      100%{
+
+        transform:scale(1)rotate(-45deg);
+
+      }
+  }
+
+  @keyframes eye-disappear{
+      0%{
+          opacity:100;
+      }
+      10%{
+          opacity:0;
+      }
+      90%{
+          opacity:0;
+      }
+      100%{
+          opacity:100
+      }
+  }
+
+/* --------------------------------- */
+/* ANIMATIONS*/
+/* --------------------------------- */
+

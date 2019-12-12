@@ -6,17 +6,50 @@
     <title>Secret Project</title>
     <link href="../../../../css/all-pages.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Happy+Monkey&display=swap" rel="stylesheet">    
 </head>
 
 <body>
     <header>
+        <div class="navigation">
+            <div class="navigation__back">
+                &nbsp;
+            </div>
+            <a href="../../../../" id="page-title" class="navigation__title">
+                CromBlog
+            </a>
+            <input type="checkbox" class="navigation__checkbox" id="navigation-toggle">
+
+            <label for="navigation-toggle" class="navigation__button">
+                <span class="navigation__icon">&nbsp;</span>
+            </label>
+
+            <div class="navigation__background">&nbsp;</div>
+
+            <div class="navigation__nav">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="../../../about/" class="navigation__link">About</a></li>
+                    <li class="navigation__item"><a href="../../../blog/" class="navigation__link">Blog</a></li>
+                    <li class="navigation__item"><a href="../../../contact/" class="navigation__link">Contact</a></li>
+                    <li class="navigation__item"><a href="../../../web-development-portfolio/"
+                            class="navigation__link">Web
+                            Development Portfolio</a></li>
+                    <li class="navigation__item"><a href="../../../writing-portfolio/" class="navigation__link">Writing
+                            Portfolio</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <audio id="rabbit-noise" style="display:none;" controls>
+            <source src="audio/rabbit-noise.m4a" type="audio/mpeg">
+        </audio>
 
     </header>
 
     <main>
 
         <div id="container">
-            <h1>很大秘密</h1>
+            <h1 id="birthday-bunny-title">Birthday Bunny</h1>
             <div id="r-body">
                 <div class="r-body-part" id="ear-left">
                     <div class="r-body-part" id="ear-left-inner"></div>
@@ -48,26 +81,31 @@
                     <div class="r-body-part" id="eye-left-iris"></div>
                     <div class="r-body-part" id="eye-left-pupil"></div>
                     <div class="r-body-part" id="eye-left-shine"></div>
-                    <div class="r-body-part" id="eye-left-heart"></div>
+
                 </div>
+                <div class="r-body-part" id="eye-left-heart"></div>
                 <div class="r-body-part" id="eye-right">
-                        <div class="r-body-part" id="eye-right-iris"></div>
-                        <div class="r-body-part" id="eye-right-pupil"></div>
-                        <div class="r-body-part" id="eye-right-shine"></div>
-                        <div class="r-body-part" id="eye-right-heart"></div>
+                    <div class="r-body-part" id="eye-right-iris"></div>
+                    <div class="r-body-part" id="eye-right-pupil"></div>
+                    <div class="r-body-part" id="eye-right-shine"></div>
+
                 </div>
+                <div class="r-body-part" id="eye-right-heart"></div>
 
                 <div id="talk-bubble">
-                    <div id="happy-birthday-text">Happy Birthday!</div>
+                    <div id="happy-birthday-text">Happy Birthday, Allie!</div>
                 </div>
 
 
             </div>
             <div id="r-buttons">
-                <button class="action-button" onclick="animateWave();setTimeout('resetAnimations()', 2500);">波</button>
-                <button class="action-button" onclick="animateSpeak();setTimeout('resetAnimations()', 3000);">说</button>
-                <button class="action-button" onclick="animateJump();setTimeout('resetAnimations()', 2000);">跳</button>
-                <button class="action-button" onclick="animateTwitterPate();setTimeout('resetAnimations()', 3000);">Twitterpate</button>
+                <button class="action-button" onclick="animateWave();setTimeout('resetAnimations()', 2500);">Wave</button>
+                <button class="action-button"
+                    onclick="document.getElementById('rabbit-noise').play();animateRaiseLeftArm();animateRaiseRightArm();animateSpeak();setTimeout('resetAnimations()', 3500);">Speak</button>
+                <button class="action-button"
+                    onclick="animateRaiseLeftArm();animateRaiseRightArm();animateJump();setTimeout('resetAnimations()', 3000);">Hop</button>
+                <button class="action-button"
+                    onclick="animateRaiseLeftArm();animateRaiseRightArm();animateTwitterPate();animateEyeDisappear();setTimeout('resetAnimations()', 3000);">Twitterpate</button>
             </div>
 
         </div>
